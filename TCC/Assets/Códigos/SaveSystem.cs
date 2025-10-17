@@ -7,11 +7,13 @@ public static class SaveSystem
 
     public static void SalvarJogo(Vector3 posicao, int pontos)
     {
-        SaveData data = new SaveData();
-        data.playerX = posicao.x;
-        data.playerY = posicao.y;
-        data.playerZ = posicao.z;
-        data.pontos = pontos;
+        SaveData data = new SaveData
+        {
+            playerX = posicao.x,
+            playerY = posicao.y,
+            playerZ = posicao.z,
+            pontos = pontos,
+        };
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(path, json);
